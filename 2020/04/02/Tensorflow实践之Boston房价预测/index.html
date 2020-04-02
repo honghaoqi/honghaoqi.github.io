@@ -6,23 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tensorflow实践之Boston房价预测 | Qi&#39;s Blog</title>
+  <title>Tensorflow实践之Boston房价预测 | 阿凡齐的个人站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="波士顿房价数据集包括506个样本，每个样本包括12个特征变量和该地区的平均房价。 房价（单价）显然和多个特征变量相关，不是单变量线性回归（一元线性回归）问题。 选择多个特征变量来建立线性方程，这就是多变量线性回归（多元线性回归）问题。   1234567891011121314151617181920212223242526272829303132333435363738394041424344">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tensorflow实践之Boston房价预测">
 <meta property="og:url" content="http://yoursite.com/2020/04/02/Tensorflow%E5%AE%9E%E8%B7%B5%E4%B9%8BBoston%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B/index.html">
-<meta property="og:site_name" content="Qi&#39;s Blog">
+<meta property="og:site_name" content="阿凡齐的个人站">
 <meta property="og:description" content="波士顿房价数据集包括506个样本，每个样本包括12个特征变量和该地区的平均房价。 房价（单价）显然和多个特征变量相关，不是单变量线性回归（一元线性回归）问题。 选择多个特征变量来建立线性方程，这就是多变量线性回归（多元线性回归）问题。   1234567891011121314151617181920212223242526272829303132333435363738394041424344">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/04/02/Tensorflow%E5%AE%9E%E8%B7%B5%E4%B9%8BBoston%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B/2020040201.PNG">
 <meta property="article:published_time" content="2020-04-02T14:19:52.000Z">
 <meta property="article:modified_time" content="2020-04-02T14:23:52.436Z">
-<meta property="article:author" content="Chris Qi">
+<meta property="article:author" content="阿凡齐的个人站">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/04/02/Tensorflow%E5%AE%9E%E8%B7%B5%E4%B9%8BBoston%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B/2020040201.PNG">
   
-    <link rel="alternative" href="/atom.xml" title="Qi&#39;s Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="阿凡齐的个人站" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -49,19 +49,19 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="https://github.com/honghaoqi/img/blob/master/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Chris Qi</a></h1>
+		  <h1 class="header-author"><a href="/">阿凡齐的个人站</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">“勿忘初心，砥砺前行”</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -85,6 +85,8 @@
 		        
 					<a class="weibo" target="_blank" href="https://weibo.com/u/5186312968" title="weibo"><i class="icon-weibo"></i></a>
 		        
+					<a class="bilibili" target="_blank" href="https://space.bilibili.com/30861928" title="bilibili"><i class="icon-bilibili"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -101,15 +103,15 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="https://github.com/honghaoqi/img/blob/master/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Chris Qi</h1>
+			  <h1 class="header-author js-header-author">阿凡齐的个人站</h1>
 			</hgroup>
 			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>“勿忘初心，砥砺前行”<i class="icon icon-quo-right"></i></p>
 			
 			
-				
 			
 				
 			
@@ -122,6 +124,8 @@
 			        
 						<a class="weibo" target="_blank" href="https://weibo.com/u/5186312968" title="weibo"><i class="icon-weibo"></i></a>
 			        
+						<a class="bilibili" target="_blank" href="https://space.bilibili.com/30861928" title="bilibili"><i class="icon-bilibili"></i></a>
+			        
 				</div>
 			</nav>
 
@@ -129,9 +133,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -280,7 +282,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 Chris Qi
+    		&copy; 2020 阿凡齐的个人站
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -406,7 +408,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">北京邮电大学在读学生&lt;br&gt;&lt;br&gt;摄影初学者，编程三脚猫&lt;br&gt;&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">北京邮电大学在读学生&lt;br&gt;&lt;br&gt;摄影初学者，编程三脚猫&lt;br&gt;&lt;br&gt;感谢光临</div>
   	  	
     	</section>
     
